@@ -71,3 +71,7 @@ SumSquare <- function(x) {
 }
 
 
+#' Schwefel223
+Schwefel223 <- function(x) {
+  sum(x^10)
+}
