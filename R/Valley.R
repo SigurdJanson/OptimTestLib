@@ -6,10 +6,9 @@
 #' Camel6
 #' Six-hump camel function
 #' @details 2-dimensional
-Camel6 <- function(x)
-{
+Camel6 <- function(x) {
   if(length(x) != 2) 
-    stop("Wrong length of 'x'. Bohachevsky is defined for exactly 2 dimensions.")
+    stop("Wrong length of 'x'. Camel6 is defined for exactly 2 dimensions.")
 
   x1.2 <- x[1]^2
   s1 <- ( 4 - 2.1*x1.2 + (x[1]^4)/3 ) * x1.2
