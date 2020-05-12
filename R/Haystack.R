@@ -3,6 +3,8 @@
 # 2 Dimensions -----------------------
 
 #' HolderTable1
+#'
+#' @param x  Numeric vector of length 2
 HolderTable1 <- function(x) {
   if(length(x) != 2) 
     stop("Wrong length of 'x'. HolderTable1 is defined for exactly 2 dimensions.")
@@ -15,6 +17,8 @@ HolderTable1 <- function(x) {
 
 
 #' HolderTable2
+#'
+#' @param x  Numeric vector of length 2
 HolderTable2 <- function(x) {
   if(length(x) != 2) 
     stop("Wrong length of 'x'. HolderTable2 is defined for exactly 2 dimensions.")
@@ -30,10 +34,50 @@ HolderTable2 <- function(x) {
 # N Dimensions -----------------------
 
 #' Rastrigin
+#'
+#' @param x  Numeric vector
 Rastrigin <- function(x) 10*length(x) + sum((x)^2 - 10*cos(1*pi*(x))) 
 
 
 #' Schwefel
+#' 
+#' @param x Numeric vector
 #' ---TODO: not sure about this anymore - conflicting sources do not help
 Schwefel <- function(x) 418.9829*length(x) - sum( x*sin(sqrt(abs(x))) )
+
+
+#' Ackley
+#' 
+#' @param x Numeric vector
+#' @param a = default value 20
+#' @param b =  default value 0.2
+#' @param c =  default value 2*pi
+#' @details 
+#' Properties of this function:
+#' * Continuous
+#' * Differentiable
+#' * Non-separable
+#' * Scalable
+#' * Multimodal
+#' @references 
+#' Bäck, T. & Schwefel, H. P. (1993). “An Overview of Evolutionary Algorithm for Parameter Optimization”. Evolutionary Computation, 1(1), pp. 1-23.
+Ackley <- function(x, a = 20, b = 0.2, c = 2*pi) {
+  d <- length(x)
+  
+  s <- -a * exp(-b*sqrt(sum(x^2)/d))
+  t <- -exp(sum(cos(c*x))/d)
+  
+  return(s + t + a + exp(1))
+}
+
+
+
+
+
+
+Shubert <- function(x) {
+  i <- c(1:5)
+  v <- sapply(i, function(x) sum(i * cos((i+1)*x+i)))
+  return( prod(v) )
+}
 
