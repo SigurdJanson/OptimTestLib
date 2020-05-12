@@ -33,7 +33,7 @@ Bohachevsky <- function( x ) {
 
 #' Sphere
 #' Computes the value of the Sphere function.
-#' @param x 
+#' @param x  Numeric vector
 #' @details 
 #' Properties of this function:
 #' * continuous
@@ -52,9 +52,9 @@ Sphere <- function(x) {sum(x^2)}
 
 #' SumSquare
 #' Computes the value of sum of squares function.
-#' @param x 
+#' @param x  Numeric vector
 #' @details 
-#' usually evaluated on $x_i ∈ [−10, 10] for i=1,… , n$.
+#' Usually evaluated on $x_i ∈ [−10, 10] for i=1,… , n$.
 #' Properties of this function:
 #' * continuous
 #' * unimodal
@@ -72,6 +72,18 @@ SumSquare <- function(x) {
 
 
 #' Schwefel223
+#' 
+#' @param x  Numeric vector
+#' @details 
+#' Usually evaluated on $x_i ∈ [−10, 10] for i=1,… , n$.
+#' Properties of this function:
+#' * Continuous
+#' * Differentiable
+#' * Non-Separable
+#' * Scalable
+#' * Unimodal
+#' @return A scalar
+#' @export
 Schwefel223 <- function(x) {
   sum(x^10)
 }
