@@ -38,3 +38,15 @@ DixonPrice <- function(x) {
   
   return(x1.2 + s)
 }
+
+
+
+#' StybTang
+#' Styblinski-Tang function
+#' @param x Numeric vector
+#'
+#' @return A scalar
+#' @export
+StybTang <- function(x) {
+  return(sum(x^4 - 16*x^2 + 5*x) / 2)
+}
