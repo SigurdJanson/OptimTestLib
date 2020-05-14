@@ -4,6 +4,12 @@
 
 # 2 Dimensions -----------------------
 
+
+Ackley2 <- function(x) {
+  return( -200 * exp(0.02*sqrt(x[1]^2 + x[2]^2)) )
+}
+
+
 #' Bohachevsky
 #' Computes first Bohachevsky function at point `x`.
 #' @param x Vector with two positions
