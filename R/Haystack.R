@@ -6,6 +6,10 @@
 
 #' GramacyLee
 #' Gramacy & Lee Function
+#' @param x Numeric vector of length 1 representing a coordinate in a parameter space
+#' @return A scalar
+#' @source 
+#' @export
 GramacyLee <- function(x) {
   if(length(x) != 1) 
     stop("Wrong length of 'x'. GramacyLee is defined for exactly 1 dimension.")
@@ -17,6 +21,12 @@ GramacyLee <- function(x) {
 # 2 Dimensions -----------------------
 
 
+#' Ackley3
+#' 
+#' @param x Numeric vector or length 2 representing a coordinate in a parameter space
+#' @return A scalar
+#' @source 
+#' @export
 Ackley3 <- function(x) {
   if(length(x) != 2) 
     stop("Wrong length of 'x'. Ackley3 is defined for exactly 2 dimensions.")
@@ -27,7 +37,12 @@ Ackley3 <- function(x) {
 }
 
 
-
+#' Keane
+#' 
+#' @param x Numeric vector or length 2 representing a coordinate in a parameter space
+#' @return A scalar
+#' @source 
+#' @export
 Keane <- function(x) {
   if(length(x) != 2) 
     stop("Wrong length of 'x'. Keane is defined for exactly 2 dimensions.")
@@ -39,8 +54,10 @@ Keane <- function(x) {
 
 #' HolderTable1
 #'
-#' @param x  Numeric vector of length 2
+#' @param x Numeric vector or length 2 representing a coordinate in a parameter space
 #' @return A scalar
+#' @source 
+#' @export
 HolderTable1 <- function(x) {
   if(length(x) != 2) 
     stop("Wrong length of 'x'. HolderTable1 is defined for exactly 2 dimensions.")
@@ -54,8 +71,10 @@ HolderTable1 <- function(x) {
 
 #' HolderTable2
 #'
-#' @param x  Numeric vector of length 2
+#' @param x Numeric vector or length 2 representing a coordinate in a parameter space
 #' @return A scalar
+#' @source 
+#' @export
 HolderTable2 <- function(x) {
   if(length(x) != 2) 
     stop("Wrong length of 'x'. HolderTable2 is defined for exactly 2 dimensions.")
@@ -67,11 +86,18 @@ HolderTable2 <- function(x) {
 }
 
 
-# ShafferF6
-# TODO: formula unclear
-# https://www.cs.unm.edu/~neal.holts/dga/benchmarkFunction/schafferf6.html
-# Function 136
-ShafferF6 <- function(x) {
+#' SchafferF6
+#' Sine evelop sine wave function.
+#' @param x Numeric vector representing a coordinate in a parameter space
+#' @return A scalar
+#' @note This function deviated from Function 136 in Jamil & Yang (2013).
+#' The publicationlacks clarity there and is not equal to the original source
+#' which is Schaffer et al. (1989).
+#' @references 
+#' Jamil, M., & Yang, X. S. (2013). A literature survey of benchmark functions for global optimisation problems. International Journal of Mathematical Modelling and Numerical Optimisation, 4(2), 150. https://doi.org/10.1504/ijmmno.2013.055204
+#' Schaffer, J., Caruana, R., Eshelman, L., & Das, R. (1989). A Study of Control Parameters Affecting Online Performance of Genetic Algorithms for Function Optimization. Third international Conference on Genetic Algorithms, 51–60.
+#' @export
+SchafferF6 <- function(x) {
   if(length(x) != 2) 
     stop("Wrong length of 'x'. ShafferF6 is defined for exactly 2 dimensions.")
 
@@ -84,8 +110,10 @@ ShafferF6 <- function(x) {
 
 #' Rastrigin
 #'
-#' @param x  Numeric vector
+#' @param x Numeric vector representing a coordinate in a parameter space
 #' @return A scalar
+#' @source 
+#' @export
 Rastrigin <- function(x) {
   10*length(x) + sum((x)^2 - 10*cos(1*pi*(x)))
 }
@@ -93,7 +121,7 @@ Rastrigin <- function(x) {
 
 #' Schwefel
 #' 
-#' @param x Numeric vector
+#' @param x Numeric vector representing a coordinate in a parameter space
 #' @return A scalar
 #' ---TODO: not sure about this anymore - conflicting sources do not help
 Schwefel <- function(x) {
@@ -103,17 +131,10 @@ Schwefel <- function(x) {
 
 #' Ackley
 #' 
-#' @param x Numeric vector
+#' @param x Numeric vector representing a coordinate in a parameter space
 #' @param a = default value 20
 #' @param b =  default value 0.2
 #' @param c =  default value 2*pi
-#' @details 
-#' Properties of this function:
-#' * Continuous
-#' * Differentiable
-#' * Non-separable
-#' * Scalable
-#' * Multimodal
 #' @return A scalar
 #' @references 
 #' Bäck, T. & Schwefel, H. P. (1993). “An Overview of Evolutionary Algorithm for Parameter Optimization”. Evolutionary Computation, 1(1), pp. 1-23.
@@ -129,16 +150,11 @@ Ackley <- function(x, a = 20, b = 0.2, c = 2*pi) {
 
 
 
-
-
 #' Shubert
 #'
-#' @param x Numeric vector
-#'
+#' @param x Numeric vector representing a coordinate in a parameter space
 #' @return A scalar
 #' @export
-#'
-#' @examples
 Shubert <- function(x) {
   i <- c(1:5)
   v <- sapply(i, function(x) sum(i * cos((i+1)*x+i)))
